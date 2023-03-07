@@ -1,0 +1,507 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Zairli Zahir</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Recognize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link rel="icon" href="~/Content/images/Photo202323165830364.JPG">
+    <link rel="stylesheet" href="/HomePage/css/bootstrap.css">
+    <link href="/HomePage/css/simpleLightbox.css" rel='stylesheet' type='text/css' />
+    <link href="/HomePage/css/roadmap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/HomePage/css/snow.css">
+    <link rel="stylesheet" href="/HomePage/css/aos.css">
+    <link href='/HomePage/css/aos-animation.css' rel='stylesheet prefetch' type="text/css" media="all" />
+    <link rel="stylesheet" href="/HomePage/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/HomePage/css/fontawesome-all.css">
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,400,400i,500,500i,700,700i,900" rel="stylesheet">
+
+    @*Swwete alert*@
+    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" />
+    <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+    @*Swwete alert*@
+
+
+    @if (TempData["message"] == "1")
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Göndərildi!", 'Mesajınız uğurla göndərildi!', "success");
+            };
+        </script>
+    }
+    else if(TempData["message"] == "0")
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Xəta!", 'Mesajınız göndərilmədi!Zəhmət olmasa xətaları aradan qaldırıb yenidən cəhd edin.', "error");
+            };
+        </script>
+    }
+
+</head>
+<body>
+    <header class="index-banner" id="home">
+        <nav class="main-header d-flex">
+            <div id="brand">
+                <div id="logo">
+                    <a href="/Site/HeadingAll">
+                        <i class="fas fa-crosshairs"></i>
+                    </a>
+                </div>
+                <div id="word-mark">
+                    <h1>
+                        <a href="/Site/HeadingAll">Bloglar</a>
+                    </h1>
+                </div>
+            </div>
+            <div id="menu">
+                <div id="menu-toggle">
+                    <div id="menu-icon">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <ul class="text-center nav-honey">
+                    <li>
+                        <a class="active scroll" href="#home">Ana səhifə</a>
+                    </li>
+                    <li>
+                        <a class="scroll" href="#about">Haqqımda</a>
+                    </li>
+                    <li>
+                        <a class="scroll" href="#projects">Layihələr</a>
+                    </li>
+                    <li>
+                        <a class="scroll" href="#contact">Əlaqə</a>
+                    </li>
+                    <li>
+                        <a href="/Site/HEadingAll">Bloglar</a>
+                    </li>
+                    <li class="login">
+                        <a href="/WriterPanelLogin/Login" class="btn login-btn text-uppercase ">
+                            Blog hesabınıza daxil olun
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </nav>
+        <div class="banner_section" id="home">
+            <div class="snow-container">
+                <div class="snow foreground"></div>
+                <div class="snow foreground layered"></div>
+                <div class="snow middleground"></div>
+                <div class="snow middleground layered"></div>
+                <div class="snow background"></div>
+                <div class="snow background layered"></div>
+            </div>
+            <div class="banner-info text-uppercase">
+                <h6 data-aos="fade-right">Təqdim etmə</h6>
+                <h5 data-aos="fade-right">Salam,mənim adım Zahirdir</h5>
+                <h3 data-text="Web developerəm">Web developerəm</h3>
+                <div class="ban-buttons mt-3" data-aos="fade-right">
+                    <a class="btn work scroll" href="#projects">Layihələrim</a>
+                    <a class="btn work scroll active" href="#contact">Əlaqə</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="banner-bottom-wthree py-lg-5 py-md-5 py-4" id="about">
+        <div class="container">
+            <div class="timeline py-lg-5 py-3">
+                <h4 class="sub-tittle-w3 text-uppercase text-center">Təcrübə</h4>
+                <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center">İş və Təhsil</h3>
+                <div id="my-timeline"></div>
+                <div><a class="btn btn-info" download href="~/Content/zairlizahir.pdf">CV'mi yüklə</a> </div>
+            </div>
+        </div>
+    </section>
+    <section class="gallery py-md-5 py-3" id="projects">
+        <div class="gallery-inner container py-md-5 pb-3">
+            <h4 class="sub-tittle-w3 text-uppercase text-center">hamısına bax</h4>
+            <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center">Layihələrim</h3>
+            <div class="row">
+
+                <div class="col-md-4 proj_gallery_grid" data-aos="zoom-in">
+                    <div class="section_1_gallery_grid">
+                        <a href="https://www.youtube.com/watch?v=PStcIbvfU40">Bax</a>
+                        <a class="a" title="Api ilə instagram postlarını sayta çəkmək" href="../../HomePage/images/g1.jpg">
+                            <div class="section_1_gallery_grid1">
+                                <img src="../../HomePage/images/g1.jpg" alt=" " class="img-fluid" />
+                                <div class="proj_gallery_grid1_pos">
+                                    <h3>Detallar</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 proj_gallery_grid" data-aos="zoom-in">
+                    <div class="section_1_gallery_grid">
+                        <a href="https://www.youtube.com/watch?v=LTDzH25on7I&t=29s">Bax</a>
+                        <a class="a" title="Instagram takipçi botu 2021" href="../../HomePage/images/g1.jpg">
+                            <div class="section_1_gallery_grid1">
+                                <img src="../../HomePage/images/g1.jpg" alt=" " class="img-fluid" />
+                                <div class="proj_gallery_grid1_pos">
+                                    <h3>Detallar</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 proj_gallery_grid" data-aos="zoom-in">
+                    <div class="section_1_gallery_grid">
+                        <a href="https://www.youtube.com/watch?v=nqYB1bdkx-I&t=40s">Bax</a>
+                        <a class="a" title="Asp.net Kurs sistemi" href="../../HomePage/images/g1.jpg">
+                            <div class="section_1_gallery_grid1">
+                                <img src="../../HomePage/images/g1.jpg" alt=" " class="img-fluid" />
+                                <div class="proj_gallery_grid1_pos">
+                                    <h3>Detallar</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 proj_gallery_grid" data-aos="zoom-in">
+                    <div class="section_1_gallery_grid">
+                        <a href="https://zahirzairli.com">Bax</a>
+                        <a class="a" title="Şəxsi veb sayt" href="../../HomePage/images/g1.jpg">
+                            <div class="section_1_gallery_grid1">
+                                <img src="../../HomePage/images/g1.jpg" alt=" " class="img-fluid" />
+                                <div class="proj_gallery_grid1_pos">
+                                    <h3>Detallar</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="testimonials py-lg-5 py-4" id="clients">
+        <div class="testimonials-inner container py-lg-4 py-3">
+            <h4 class="sub-tittle-w3 text-uppercase text-center">Yaradıcılıq</h4>
+            <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center">Günün sözü</h3>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="testimonials_grid center">
+                            <div class="testimonials_grid-inn text-uppercase">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Boş zaman yoxdur, boşa keçən zaman var .</p>
+                            </div>
+                            <i class="fas fa-quote-left"></i>
+
+                            <label>Azərbaycan,Bakı</label>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonials_grid center">
+                            <div class="testimonials_grid-inn text-uppercase">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Boş zaman yoxdur, boşa keçən zaman var .</p>
+                            </div>
+                            <i class="fas fa-quote-left"></i>
+
+                            <label>Azərbaycan,Bakı</label>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev test" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="fas fa-long-arrow-alt-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next test" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="fas fa-long-arrow-alt-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact py-lg-5 py-md-5 py-3" id="contact">
+        <div class="container">
+            <div class="inner-sec-w3ls py-lg-5 py-3">
+                <h4 class="sub-tittle-w3 text-uppercase text-center">Məni tap</h4>
+                <h3 class="tittle-w3 text-uppercase mb-lg-5 mb-3 text-center text-white">Əlaqə</h3>
+
+                <div class="contact_grid_right">
+                    <form action="/Home/HomePage" method="post">
+                        <div class="row contact_left_grid">
+                            <div class="col-md-6 con-left" data-aos="fade-up">
+                                <div class="form-group">
+
+                                    <input class="form-control" type="text" name="UserName" placeholder="Tam ad" required>
+                                    @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="email" name="UserMail" placeholder="Email" required>
+                                    @Html.ValidationMessageFor(x => x.UserMail, null, new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="UserSubject" placeholder="Mövzu" required>
+                                    @Html.ValidationMessageFor(x => x.UserSubject, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6 con-right" data-aos="fade-up">
+                                <div class="form-group">
+                                    <textarea id="textarea" placeholder="Mesajınız" name="UserMessage" required></textarea>
+                                    @Html.ValidationMessageFor(x => x.UserMessage, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="sub-honey mx-auto mt-3">
+                                <input class="form-control" type="submit" value="Göndər">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="address row mt-lg-5">
+
+                    <div class="col-md-4 address-grid" data-aos="flip-up">
+                        <div class="address-info">
+                            <div class="address-left text-center">
+                                <i class="far fa-map"></i>
+                            </div>
+                            <div class="address-right text-center">
+                                <h6 class="my-3">Adres</h6>
+                                <p>
+                                    Azərbaycan, Bakı
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 address-grid" data-aos="flip-up">
+                        <div class="address-info">
+                            <div class="address-left text-center">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <div class="address-right text-center">
+                                <h6 class="my-3">Email</h6>
+                                <p>
+                                    Email :
+                                    <a href="mailto:zairli.zahir@gmail.com"> zairli.zahir@gmail.com"</a>
+
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 address-grid" data-aos="flip-up">
+                        <div class="address-info">
+                            <div class="address-left text-center">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="address-right text-center">
+                                <h6 class="my-3">Telefon</h6>
+                                <p>+994513551006</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.6047981542183!2d49.79043071492486!3d40.39545076485817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40308768c13497eb%3A0x14cd184dbf935954!2sYeni%20Yasamal%202%2C%20Bak%C4%B1%2C%20Azerbaijan!5e0!3m2!1sen!2str!4v1675446543073!5m2!1sen!2str" style="border:0; width: 100%;height: 300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <footer class="footer text-left">
+        <div class="container py-4 py-sm-5">
+
+            <div class="row py-sm-4 py-3">
+                <div class="col-lg-2 col-md-4">
+                    <ul class="list-footer" data-aos="fade-up">
+                        <li>
+                            <a href="#home" class="nav-link scroll">
+                                Ana səhifə
+                            </a>
+                        </li>
+                        <li class="my-2">
+                            <a href="#about" class="nav-link scroll">
+                                Haqqımda
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#projects" class="nav-link scroll">
+                                Layihələr
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link scroll">
+                                Əlaqə
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="offset-lg-4"></div>
+                <div class="col-lg-4 footer-end-grid mt-md-0 mt-sm-5" data-aos="fade-up">
+                    <h2>
+                        <a href="/Site/HeadingAll">
+                            <i class="fas fa-crosshairs"></i> Bloglar
+                        </a>
+                    </h2>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between pt-lg-3  footer-bottom-cpy">
+                <div class="copy-right-w3ls">
+                    <p>
+                        © @DateTime.Now.Year Bütün hüquqlar qorunur | hazırlayan
+                        <a href="https://zahirzairli.com/"> Zairli Zahir</a>
+
+                    </p>
+                </div>
+                <div class="social-content pb-md-0 pb-4">
+                    <ul class="social-icons text-center d-flex">
+                        <li class="ml-lg-5">
+                            <a href="https://www.facebook.com/profile.php?id=100006595188135">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=100006595188135">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=100006595188135">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://az.linkedin.com/in/zahir-zairli-485201215?original_referer=https%3A%2F%2Fwww.google.com%2F">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/HomePage/js/jquery-2.2.3.min.js"></script>
+    <script src='/HomePage/js/aos.js'></script>
+    <script>
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1000
+        });
+    </script>
+    <script>
+        $(() => {
+            $(window).scroll(() => {
+                var windowTop = $(window).scrollTop();
+                windowTop > 100 ? $('nav').addClass('navShadow') : $('nav').removeClass('navShadow');
+                windowTop > 100 ? $('ul.nav-honey').css('top', '50px') : $('ul.nav-honey').css('top', '160px');
+            });
+            $('#logo').on('click', () => {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 500);
+            });
+            $('#menu-toggle').on('click', () => {
+                $('#menu-toggle').toggleClass('closeMenu');
+                $('ul').toggleClass('showMenu');
+
+                $('li').on('click', () => {
+                    $('ul').removeClass('showMenu');
+                    $('#menu-toggle').removeClass('closeMenu');
+                });
+            });
+
+        });
+    </script>
+    <script src="/HomePage/js/jquery.roadmap.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var events = [{
+                date: 'Sentyabr 2019 - İndi',
+                content: 'Müəsisənin adı <small>Bakı Dövlət Universiteti, Kompüter Elmləri</small>'
+            },
+            {
+                date: '2023',
+                content: 'Kurs <small>Youtube,100 Derslik Asp.Net MVC</small>'
+            },
+            {
+                date: '2023',
+                content: 'Kurs <small>Youtube,150 Derslik Asp.Net Core</small>'
+            },
+            {
+                date: '2022',
+                content: 'Kurs <small>Udemy,Murat YuceDag C#-ile OOP mimarisi</small>'
+            },
+            {
+                date: '2022-2023',
+                content: 'Kurs <small>Udemy,Murat Yucedag,Asp.Net MVC ile Ticari Otomasyon</small>'
+            },
+            {
+                date: '2021 - 2022',
+                content: 'Müəsisənin adı <small>NanTech,FullStack Web Development</small>'
+            },
+            {
+                date: '2007 - 2017',
+                content: 'Müəsisənin adı <small>Yardımlı şəhər 1 saylə tam orta məktəbi</small>'
+            }
+            ];
+            $('#my-timeline').roadmap(events, {
+                eventsPerSlide: 6,
+                slide: 1,
+                prevArrow: '<i class="fas fa-chevron-left"></i>',
+                nextArrow: '<i class="fas fa-chevron-right"></i>'
+            });
+        });
+    </script>
+    <script src="/HomePage/js/simpleLightbox.js"></script>
+    <script>
+        $('.proj_gallery_grid .a').simpleLightbox();
+
+    </script>
+    <script src="/HomePage/js/jquery.waypoints.min.js"></script>
+    <script src="/HomePage/js/jquery.countup.js"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <script src="/HomePage/js/move-top.js"></script>
+    <script src="/HomePage/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+        });
+    </script>
+    <script src="/HomePage/js/bootstrap.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    var a = 1;
+}
+@if (TempData["message"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                swal("Error!", '@TempData["message"]', "error");
+            };
+    </script>
+}
+
+
+<div style="width: 100%;padding: 10px;">
+    @Html.Action("AboutPartial", "About")
+    <div class="text-center">
+        <h5 style="display: inline-block;">Haqqımızda&nbsp;  <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    </div>
+    <hr />
+</div>
+<table class="table table-bordered table-hover mt-3">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Mətn 1</th>
+            <th>Mətn 2</th>
+            <th>Şəkil 1</th>
+            <th>Şəkil 2</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@a</th>
+                <td>@item.AboutDetails1</td>
+                <td>@item.AboutDetails2</td>
+                <td>
+                    <img onerror="this.src='/Content/images/avatar.png'" style="border-radius: 50%;width: 50px;height: 50px;" src="@item.AboutImage1" />
+                </td>
+                <td>
+                    <img onerror="this.src='/Content/images/avatar.png'" style="border-radius: 50%;width: 50px;height: 50px;" src="@item.AboutImage2" />
+                </td>
+
+
+                @if (item.AboutStatus == false)
+                {
+                    <td>
+                        <a href="/About/EditAbout/@item.AboutId">
+                            <i class="nav-icon fas fa-edit text-info">Passiv</i>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a href="/About/EditAbout/@item.AboutId">
+                            <i style="color: red !important;" class="nav-icon fas fa-trash text-info">Aktiv</i>
+                        </a>
+                    </td>
+                }
+            </tr>
+            a += 1;
+        }
+    </tbody>
+</table>
+
+
+
+

@@ -1,0 +1,105 @@
+﻿@using EntityLayer.Concrete
+@model PagedList.IPagedList<Heading>
+@using PagedList
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "AllHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+    var a = 1;
+    string color = "";
+}
+
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <a href="/WriterPanelHeading/NewHeading" style="float: left;display: inline-block;" class="btn btn-info">Yeni başlıq</a>
+    <h5 style="display: inline-block;">Başlıqların siyahısı &nbsp;  <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+@if (Model.Count == 0)
+{
+    <div class="text-center bg-info p-5">
+        <h3>Bu yazıçının hələki paylaşdığı məlumat yoxdur.</h3>
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-hover mt-3">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Başlıq adı</th>
+                <th>Başlığa aid yazılar</th>
+                <th>Başlığın kateqoriyası</th>
+                <th>Başlığın müəllifi</th>
+                <th>Yaz</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.Category.CategoryName == "Təhsil")
+                {
+                    color = "info";
+                }
+                else if (item.Category.CategoryName == "Teatr")
+                {
+                    color = "danger";
+                }
+                else if (item.Category.CategoryName == "Kitablar")
+                {
+                    color = "warning";
+                }
+                else if (item.Category.CategoryName == "İdman")
+                {
+                    color = "success";
+                }
+                else if (item.Category.CategoryName == "Filmlər")
+                {
+                    color = "dark";
+                }
+                else if (item.Category.CategoryName == "Proqramlaşdırma")
+                {
+                    color = "secondary";
+                }
+                else if (item.Category.CategoryName == "Mərc oyunları")
+                {
+                    color = "primary";
+                }
+                else
+                {
+                    color = "gradient-warning";
+                }
+                <tr>
+                    <th>@a</th>
+                    <td>
+                        @item.HeadingName<br />
+                        <span class="text-danger">
+                            @(((DateTime)item.HeadingDate).ToString("dd-MMM-yyyy"))
+                        </span>
+                    </td>
+                    <td><a class="text-secondary" href="/Site/HeadingAll/@item.HeadingId">  <i class="nav-icon fas fa-arrow-circle-right text-danger"></i>Bax</a></td>
+                    <td>
+                        <p class="bg-@color">
+                            @item.Category.CategoryName
+
+                        </p>
+                    </td>
+                    <td>
+                        <img style="border-radius: 50%;width: 10%;float: left;" src="~/Content/images/@item.Writer.WriterImage" />
+                        <a href="/Site/ContentByWriter/@item.WriterId">
+                            @item.Writer.WriterName @item.Writer.WriterSurname
+                        </a>
+                    </td>
+                    <td><a class="text-secondary" href="/WriterPanelContent/NewContent/@item.HeadingId">  <i class="nav-icon fas fa-pen-alt text-danger">Yaz</i></a></td>
+                </tr>
+                a += 1;
+            }
+        </tbody>
+    </table>
+}
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("AllHeading", new { page }), new PagedListRenderOptions
+                              {
+                                  LiElementClasses = new List<string>
+                                  { "page-link" }
+
+                              })

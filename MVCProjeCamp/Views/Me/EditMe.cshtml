@@ -1,0 +1,140 @@
+﻿@model EntityLayer.Concrete.Me
+@{
+    ViewBag.Title = "EditMe";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <a href="javascript:history.back()" style="float: left;display: inline-block;" class="btn btn-danger">Geri qayıt</a>
+    <h5 style="display: inline-block;">Kateqoriyaya düzəliş et&nbsp; <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+<div class="col-md-12">
+    @using (Html.BeginForm("EditMe", "Me", FormMethod.Post))
+    {
+    <div class="row">
+        <div class="col-6">
+            @Html.TextBoxFor(x => x.MeId, null, new { @class = "form-control", @readonly = "readonly", hidden = "hidden" })
+            @Html.Label("Ad")
+            @Html.TextBoxFor(x => x.MeName, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Soy ad")
+            @Html.TextBoxFor(x => x.MeSurname, new { @class = "form-control" })
+        </div>
+        <div class="col-12">
+            @Html.Label("Şəkil linki")
+            @Html.TextBoxFor(x => x.MePhoto, new { @class = "form-control"})
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 1")
+            @Html.TextBoxFor(x => x.MySkill1, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 1-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage1, new { @class = "form-control", type = "number",max="100",min= "0" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 2")
+            @Html.TextBoxFor(x => x.MySkill2, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 2-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage2, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 3")
+            @Html.TextBoxFor(x => x.MySkill3, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 3-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage3, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 4")
+            @Html.TextBoxFor(x => x.MySkill4, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 4-ün dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage4, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 5")
+            @Html.TextBoxFor(x => x.MySkill5, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 5-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage5, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 6")
+            @Html.TextBoxFor(x => x.MySkill6, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 6-nin dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage6, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 7")
+            @Html.TextBoxFor(x => x.MySkill7, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 7-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage7, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 8")
+            @Html.TextBoxFor(x => x.MySkill8, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 8-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage8, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 9")
+            @Html.TextBoxFor(x => x.MySkill9, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 9-un dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage9, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 10")
+            @Html.TextBoxFor(x => x.MySkill10, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 10-nun dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage10, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 11")
+            @Html.TextBoxFor(x => x.MySkill11, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 11-in dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage11, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 12")
+            @Html.TextBoxFor(x => x.MySkill12, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 12-nin dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage12, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 13")
+            @Html.TextBoxFor(x => x.MySkill13, new { @class = "form-control" })
+        </div>
+        <div class="col-6">
+            @Html.Label("Bacarıq 13-ün dərəcəsi %")
+            @Html.TextBoxFor(x => x.MySkillPercentage13, new { @class = "form-control", type = "number",max="100",min= "0"  })
+        </div>
+
+        <br /><br />
+    </div>
+        <br />
+        <button type="submit" class="btn btn-info">Yadda saxla</button>
+    }
+</div>
+

@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+
+    @*<script src="https://www.google.com/recaptcha/api.js"></script>*@
+
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="~/Content/images/avatar.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/WriterLogin/css/style.css">
+    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" />
+    <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+    @if (TempData["Message"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Xəta!", '@TempData["Message"]', "error");
+            };
+        </script>
+    }
+    @if (TempData["SignUpWriterSuc"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Qeydiyyat!", '@TempData["SignUpWriterSuc"]', "success");
+            };
+        </script>
+    }
+    @*<script src="https://www.google.com/recaptcha/enterprise.js?render=6LeJyGUkAAAAAPj7DfBPQLApsjTSiaJoiU9ik3dv"></script>
+
+    <script>
+        grecaptcha.enterprise.ready(function () {
+            grecaptcha.enterprise.execute('6LeJyGUkAAAAAPj7DfBPQLApsjTSiaJoiU9ik3dv', { action: 'login' }).then(function (token) {
+               ...
+            });
+});
+    </script>*@
+</head>
+<body class="img js-fullheight" style="background-image: url(/WriterLogin/images/bg.jpg);">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Yazar hesabınıza daxil olun</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Hesabınız var?</h3>
+                        <form action="/WriterPanelLogin/Login" method="post" class="signin-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Mail" name="WriterMail" required>
+                            </div>
+                            <div class="form-group">
+                                <input id="password-field" type="password" class="form-control" placeholder="Şifrə" name="WriterPassword" required>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+
+                            @*<div class="form-group" style="display: flex;justify-content: center;align-items: center;">
+            <div class="g-recaptcha" data-sitekey="6LeJyGUkAAAAAPj7DfBPQLApsjTSiaJoiU9ik3dv"></div>
+        </div>*@
+                            <div class="form-group">
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Daxil ol</button>
+                            </div>
+                            <div class="form-group">
+                                <a href="/WriterPanelLogin/WriterSignUp" class="form-control btn btn-primary submit px-3">Qeydiyyat</a>
+                            </div>
+                            @*<div class="form-group d-md-flex">
+            <div class="w-50">
+                <label class="checkbox-wrap checkbox-primary">
+                    Məni xatırla
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="w-50 text-md-right">
+                <a href="#" style="color: #fff">Qeydiyyat</a>
+            </div>
+        </div>*@
+                        </form>
+                        @*<p class="w-100 text-center">&mdash; Sosial media hesablarıyla daxil olun&mdash;</p>
+                        <div class="social d-flex text-center">
+                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/WriterLogin/js/jquery.min.js"></script>
+    <script src="/WriterLogin/js/popper.js"></script>
+    <script src="/WriterLogin/js/bootstrap.min.js"></script>
+    <script src="/WriterLogin/js/main.js"></script>
+</body>
+</html>
+
+

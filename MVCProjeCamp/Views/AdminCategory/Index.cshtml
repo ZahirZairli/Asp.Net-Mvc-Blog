@@ -1,0 +1,60 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    var a = 1;
+}
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <a href="/AdminCategory/AddCategory" style="float: left;display: inline-block;" class="btn btn-info">Yeni kateqoriya</a>
+    <h5 style="display: inline-block;">Kateqoriyaların siyahısı &nbsp;  <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+<table class="table table-bordered table-hover mt-3">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Kateqoriya Adı</th>
+            <th>Kateqoriya təsviri</th>
+            <th>Kateqoriya Statusu</th>
+            <th>Kateqoriyaya aid başlıqlar</th>
+            <th colspan="2">Düzəliş et</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@a</th>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                @if (item.CategoryStatus == true)
+                {
+                    <td>
+                        <i style="color: green;" class="nav-icon fas fa-check-square">Aktiv</i>
+                    </td>
+                }
+                else
+                {
+                    <td><i class="nav-icon fas fa-check-square text-danger">Passiv</i></td>
+                }
+                <td>
+                    <a href="/Heading/HeadingByCategory/@item.CategoryId">
+                        <i class="nav-icon fas fa-train text-warning">Başlıqlar</i>
+                    </a>
+                </td>
+                <td>
+                    <a href="/AdminCategory/EditCategory/@item.CategoryId">
+                        <i class="nav-icon fas fa-edit text-info">Edit</i>
+                    </a>
+                </td>
+                <td>
+                    <a href="/AdminCategory/DeleteCategory/@item.CategoryId">
+                        <i class="nav-icon fas fa-trash-restore text-danger">Delete</i>
+                    </a>
+                </td>
+            </tr>
+            a += 1;
+        }
+    </tbody>
+</table>

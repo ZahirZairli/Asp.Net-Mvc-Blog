@@ -1,0 +1,126 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+@{
+    ViewBag.Title = "Sending";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="row mt-3">
+    @Html.Action("ContactGeneralPartial", "Contact")
+    <div class="col-md-9">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Göndərilən mesajlar</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="mesaj axtar">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                @*<div class="mailbox-controls">
+                    <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                        <i class="far fa-square"></i>
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                    <div class="float-right">
+                        1-50/200
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="table-responsive mailbox-messages">
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="icheck-primary">
+                                            <a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i>Sil</a>
+                                        </div>
+                                    </td>
+                                    <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                    <td class="mailbox-name">@item.RecieverMail</td>
+                                    <td class="mailbox-subject">
+                                        <b>@item.MessageSubject</b> -
+                                        <a href="/Message/SendingDetail/@item.MessageId">
+
+                                            @if (item.MessageContent.Length >= 18)
+                                            {
+                                                @Html.Raw(item.MessageContent.Substring(0, 18))
+                                            }
+                                            else
+                                            {
+                                                @Html.Raw(item.MessageContent)
+                                            }
+                                            ...
+                                        </a>
+                                    </td>
+                                    <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                                    <td class="mailbox-date">
+                                        @{
+                                            DateTime end = (DateTime)item.MessageDate;
+                                            DateTime now = DateTime.Now;
+                                            TimeSpan diff = end.Subtract(now);
+                                        }
+                                        @if (diff.Days != 0 && diff.Hours != 0 && diff.Minutes != 0)
+                                        {
+                                            <p class="text-gray mb-0">@int.Parse(diff.ToString(@"dd"))  gün əvvəl</p>
+                                        }
+                                        else if (diff.Days == 0 && diff.Hours != 0 && diff.Minutes != 0)
+                                        {
+                                            <p class="text-gray mb-0">@int.Parse(diff.ToString(@"hh")) saat əvvəl</p>
+                                        }
+                                        else if (diff.Days == 0 && diff.Hours == 0 && diff.Minutes != 0)
+                                        {
+                                            <p class="text-gray mb-0">@int.Parse(diff.ToString(@"mm")) dəqiqə əvvəl</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-gray mb-0">@int.Parse(diff.ToString(@"ss")) saniyə əvvəl</p>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @*<div class="card-footer p-0">
+                <div class="mailbox-controls">
+                    <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                        <i class="far fa-square"></i>
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                    </div>
+                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                    <div class="float-right">
+                        1-50/200
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</div>
+
+

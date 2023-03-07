@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Content
+@{
+    ViewBag.Title = "NewContent";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <a href="javascript:history.back()" style="float: left;display: inline-block;" class="btn btn-danger">Geri qayıt</a>
+    <h5 style="display: inline-block;">Yeni Yaz;&nbsp; <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+<div class="col-md-12">
+    @using (Html.BeginForm("NewContent", "WriterPanelContent", FormMethod.Post))
+    {
+        <div class="row">
+            <input type="text" readonly hidden name="HeadingId" value="@ViewBag.headingid" />
+            <div class="col-12">
+                <div class="form-group">
+                    <textarea id="compose-textarea" name="ContentValue" class="form-control" style="height: 800px !important;"></textarea>
+                    @Html.ValidationMessageFor(x => x.ContentValue, null, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <button class="btn btn-info">Yaz</button>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+
+@foreach (var item in Model)
+{
+<li class="nav-item">
+    <a href="/Site/HeadingAll/@item.HeadingId" class="nav-link">
+        <i class="nav-icon fas fa-th"></i>
+        <p>
+            @item.HeadingName
+        </p>
+    </a>
+</li>
+}

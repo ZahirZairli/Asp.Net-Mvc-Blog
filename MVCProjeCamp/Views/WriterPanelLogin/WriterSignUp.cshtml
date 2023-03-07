@@ -1,0 +1,82 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+    <link href="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/Login/assets/css/login.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/images/avatar.png">
+    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" />
+    <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @if (TempData["SignUpWriterError"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Xəta!", '@TempData["SignUpWriterError"]', "error");
+            };
+        </script>
+    }
+</head>
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="wrapper fadeInDown">
+                    <div id="formContent">
+                        <div class="fadeIn first">
+                            <img style="border-radius: 50%;width: 50%;height: 200px;" src="~/Content/images/avatar.png" id="icon" alt="ZairliZahir" title="ZairliZahir" />
+                        </div>
+                        <form method="post" action="~/WriterPanelLogin/WriterSignUp">
+                            <input type="text" autocomplete="off" name="WriterName" placeholder="Ad" />
+                            <br />
+                            @Html.ValidationMessageFor(x => x.WriterName, null, new { @class = "text-danger" })
+                            <input type="text" autocomplete="off" name="WriterSurname" placeholder="Soyad" />
+                            <br />
+                            @Html.ValidationMessageFor(x => x.WriterSurname, null, new { @class = "text-danger" })
+                            <input type="email" autocomplete="off" name="WriterMail" placeholder="Maili" />
+                            <br />
+                            @Html.ValidationMessageFor(x => x.WriterMail, null, new { @class = "text-danger" })
+                            <input type="password" autocomplete="off" name="WriterPassword" placeholder="Şifrə" />
+                            <br />
+                            @Html.ValidationMessageFor(x => x.WriterPassword, null, new { @class = "text-danger" })
+                            <input type="submit" class="btn btn-info" />
+                        </form>
+                        <div id="formFooter">
+                            <a class="underlineHover" href="javascript:history.back()">Ana səhifə</a><br />
+                            @*<small style="color:red;font-size: 15px;">@TempData["Message"]</small>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).keydown(function (event) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+                return false;
+            }
+            else if (event.ctrlKey && event.keyCode == 67) {
+                return false;
+            }
+            else if (event.ctrlKey && event.keyCode == 85) {
+                return false;
+            }
+        })
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>

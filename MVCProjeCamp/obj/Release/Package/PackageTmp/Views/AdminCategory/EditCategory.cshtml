@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <a href="javascript:history.back()" style="float: left;display: inline-block;" class="btn btn-danger">Geri qayıt</a>
+    <h5 style="display: inline-block;">Kateqoriyaya düzəliş et&nbsp; <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+<div class="col-md-12">
+    @using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+    {
+        @Html.TextBoxFor(x => x.CategoryId, null, new { @class = "form-control", @readonly = "readonly", hidden = "hidden" })
+        @Html.Label("Kateqoriya adı")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName, null, new { @class = "text-danger" })
+        <br /><br />
+        @Html.Label("Kateqoriya təsviri")
+        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription, null, new { @class = "text-danger" })
+        <br /><br />
+        <button class="btn btn-info">Yadda saxla</button>
+    }
+</div>

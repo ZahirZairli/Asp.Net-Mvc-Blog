@@ -1,0 +1,16 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_SiteLayouut.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div style="width: 80%;">
+    <img style="width: 100px;height: 100px;border-radius: 50%;" src="@item.AboutImage1" />
+    <h1>@item.AboutDetails1</h1>
+    <img style="width: 100px;height: 100px;border-radius: 50%;" src="@item.AboutImage2" />
+    <h1>@item.AboutDetails2</h1>
+    </div>
+}

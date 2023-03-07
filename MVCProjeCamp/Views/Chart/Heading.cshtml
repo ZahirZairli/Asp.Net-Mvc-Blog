@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Heading";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+    <title>Result Visualization</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("HeadingChart", "Chart")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawChart(result);
+                    });
+                }
+            });
+        });
+        function drawChart(result) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Başlığın adı');
+            data.addColumn('number', 'Başlıqdakı yazı sayı');
+            var dataArray = [];
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.Name.toString(), obj.Count]);
+            });
+            data.addRows(dataArray);
+            var columnChartOptions = {
+                title: "Başlıqlardakı yazı sayı",
+                width: 1000,
+                height: 800,
+                bar: { groupWidth: "20%" },
+            };
+            var columnChart = new google.visualization.BarChart(document
+                .getElementById('Piechart_div'));
+            columnChart.draw(data, columnChartOptions);
+        }
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <div id="Piechart_div"></div>
+            </div>
+        </div>
+    </div>
+
+

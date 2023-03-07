@@ -1,0 +1,106 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    var a = 1;
+}
+
+@if (TempData["AddAdminError"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                swal("Error!", '@TempData["AddAdminError"]', "error");
+            };
+    </script>
+}
+
+@if (TempData["AddAdmin"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                swal("Uğurlu!", '@TempData["AddAdmin"]', "success");
+            };
+    </script>
+}
+@if (TempData["DeleteAdmin"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                swal("Uğurlu!", '@TempData["DeleteAdmin"]', "success");
+            };
+    </script>
+}
+@if (TempData["DeleteAdminError"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                swal("Error!", '@TempData["DeleteAdminError"]', "error");
+            };
+    </script>
+}
+
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <button style="float: left;" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+        Yeni admin
+    </button>
+    <h5 style="display: inline-block;">Adminlərin siyahısı &nbsp;  <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yeni Admin</h2>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/Authorization/AddAdmin">
+                    <label>Tam ad</label>
+                    <input required type="text" name="AdminUserName" class="form-control" />
+                    <label>Şifrə</label>
+                    <input required type="text" name="AdminPassword" class="form-control" />
+                    <label>Email</label>
+                    <input required type="email" class="form-control" name="AdminMail" />
+                    <label>Vəzifə</label>
+                    <select id="AdminRole" name="AdminRole" class="form-control">
+                        <option value="A">Super Admin</option>
+                        <option value="B">Admin</option>
+                    </select>
+                    <br />
+                    <button class="btn btn-info">Yadda saxla</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-hover mt-3">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tam ad</th>
+            <th>Mail</th>
+            <th>Şifrə</th>
+            <th>Vəzifə</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@a</th>
+                <td>@item.AdminUserName</td>
+                <td>@item.AdminMail</td>
+                <td>@item.AdminPassword</td>
+                <td>@item.AdminRole</td>
+                <td>
+                    <a href="/Authorization/DeleteAdmin/@item.AdminId">
+                        <i class="nav-icon fas fa-trash-restore text-danger">Sil</i>
+                    </a>
+                </td>
+            </tr>
+            a += 1;
+        }
+    </tbody>
+</table>

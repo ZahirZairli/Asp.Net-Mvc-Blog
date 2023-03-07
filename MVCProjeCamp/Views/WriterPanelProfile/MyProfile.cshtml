@@ -1,0 +1,59 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="text-center" style="width: 100%;padding: 10px;">
+    <a href="javascript:history.back()" style="float: left;display: inline-block;" class="btn btn-danger">Geri qayıt</a>
+    <h5 style="display: inline-block;">Kateqoriyaya düzəliş et&nbsp; <i class="nav-icon fas fa-arrow-alt-circle-down text-info"></i></h5>
+    <hr />
+</div>
+<div class="col-md-12">
+    @using (Html.BeginForm("MyProfile", "WriterPanelProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+            <div class="col-6">
+                @Html.TextBoxFor(x => x.WriterImage, null, new { @class = "form-control", @readonly = "readonly", hidden = "hidden" })
+                @Html.Label("Yazıçının emaili")
+                @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", type = "email", @readonly = "readonly" })
+                @Html.Label("Yazıçının adı")
+                @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterName, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-6">
+                @Html.Label("Yazıçının soy adı")
+                @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterSurname, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-6">
+                @Html.Label("Yazıçının parolu")
+                @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterPassword, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-6">
+                @Html.Label("Yazıçı haqqında")
+                @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterAbout, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-6">
+                @Html.Label("Əlaqə nömrəsi")
+                @Html.TextBoxFor(x => x.WriterPhone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WriterPhone, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-6">
+                <br />
+                <label>Yeni şəkil</label>
+                <input name="WriterImage" type="file" />
+            </div>
+            <div class="col-6">
+                <br />
+                <img style="border-radius: 50%;width: 20%;" src="~/Content/images/@Model.WriterImage" />
+            </div>
+            <br /><br />
+        </div>
+        <br />
+        <button class="btn btn-info">Yadda saxla</button>
+    }
+</div>
+

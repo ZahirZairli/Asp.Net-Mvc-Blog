@@ -1,0 +1,26 @@
+﻿<button style="float: left;" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+    Yeni məlumat
+</button>
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Haqqımızda</h2>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/About/AddAbout">
+                    <label>Haqqımda mətn 1</label>
+                    <input required type="text" name="AboutDetails1" class="form-control" />
+                    <label>Haqqımda mətn 2</label>
+                    <input required type="text" name="AboutDetails2" class="form-control" />
+                    <label>Haqqımda şəkil1 link</label>
+                    <input required type="text" class="form-control" name="AboutImage1" />
+                    <label>Haqqımda şəkil2 link</label>
+                    <input required type="text" name="AboutImage2" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Yadda saxla</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
